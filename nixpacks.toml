@@ -1,0 +1,20 @@
+[phases.setup]
+nixPkgs = ["nodejs-20_x", "npm-10_x"]
+
+[phases.build]
+dependsOn = ["setup"]
+cmds = [
+  "cd packages/backend",
+  "npm ci --legacy-peer-deps --timeout=600000",
+  "npm run build"
+]
+
+[start]
+cmd = "cd packages/backend && npm start"
+
+[variables]
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "true"
+NODE_ENV = "production"
+NPM_CONFIG_TIMEOUT = "600000"
+NPM_CONFIG_LEGACY_PEER_DEPS = "true"

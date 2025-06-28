@@ -1,0 +1,48 @@
+{
+  "name": "conclusive-digital-seo-tool",
+  "version": "1.0.0",
+  "description": "Comprehensive SaaS SEO tool combining Screaming Frog, Sitebulb, and Ahrefs features",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=packages/backend",
+    "dev:frontend": "npm run dev --workspace=packages/frontend",
+    "dev:crawler": "npm run dev --workspace=packages/crawler",
+    "dev:ai": "npm run dev --workspace=packages/ai-service",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "eslint packages/*/src/**/*.{ts,tsx}",
+    "type-check": "tsc --noEmit",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "seo",
+    "crawler",
+    "backlinks",
+    "keywords",
+    "analytics",
+    "saas"
+  ],
+  "author": "Conclusive Digital",
+  "license": "MIT"
+}
